@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import localStorageService from '../Services/LocalStorage';  
 import { useHistory } from 'react-router-dom';
 
 function LoginPage() {
@@ -19,10 +19,10 @@ function LoginPage() {
     }
   
     
-    localStorage.setItem('API_KEY', apiKey);
+    localStorageService.setItem('API_KEY', apiKey);
   
    
-    // history.push('/select');
+    istory.push('/select');
   }
 
   return (

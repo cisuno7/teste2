@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getTeamInfo } from './APIservice';
+import { getTeamInfo } from '../Services/APIService';
 import PlayerList from '../Components/Playerlist';
 import StatsTable from '../Components/StatsTable';
 import GoalsChart from '../Components/GoalsCharts';
