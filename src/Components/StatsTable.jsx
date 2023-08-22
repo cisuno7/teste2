@@ -1,30 +1,34 @@
+import React, { useEffect, useState } from 'react';
+import StatsTable from '../Components/StatsTable';
+import { getTeamStatistics } from '../Services/TeamStatsService';
 
-import React from 'react';
+function TeamStatsPage() {
+  const [stats, setStats] = useState(null);
 
-function StatsTable({ stats }) {
-    return (
-        <div className="stats-table">
-            <h3>Estatísticas</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Jogos</th>
-                        <th>Vitórias</th>
-                        <th>Derrotas</th>
-                        <th>Empates</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{stats.totalGames}</td>
-                        <td>{stats.wins}</td>
-                        <td>{stats.losses}</td>
-                        <td>{stats.draws}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    );
+  useEffect(() => {
+
+    const season = '2019';
+    const team = '33';
+    const league = '39';
+
+    getTeamStatistics(season, team, league)
+      .then(response => {
+        setStats(response.data);
+      })
+      .catch(error => {
+        console.error("Erro ao buscar estatísticas:", error);
+      });
+  }, []);
+
+  if (!stats) {
+    return <div>Loading...</div>;  
+  }
+
+  return (
+    <div className="team-stats-container">
+      <StatsTable stats={stats} />
+    </div>
+  );
 }
 
-export default StatsTable;
+export default TeamStatsPage;

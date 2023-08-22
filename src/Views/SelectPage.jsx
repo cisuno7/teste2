@@ -1,30 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import { getCountries } from '../Services/CountriesService';
 
 function SelectCountryPage() {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState('');
 
-
-  // const history = useHistory();
+  const history = useHistory();
 
   useEffect(() => {
-    
-    const apiKey = localStorage.getItem('API_KEY');
-
-    
-    axios.get('URL_DA_API_PARA_PEGAR_PAISES', {
-      headers: {
-        'API_KEY': apiKey
-      }
-    })
-    .then(response => {
-      setCountries(response.data);
-    })
-    .catch(error => {
-      console.error("Erro ao buscar os países:", error);
-    });
+    getCountries()
+      .then(data => {
+        setCountries(data);
+      })
+      .catch(error => {
+        console.error("Erro ao buscar os países:", error);
+      });
 
   }, []);
 
@@ -38,7 +29,6 @@ function SelectCountryPage() {
       return;
     }
 
-    
     // history.push('/select-league', { country: selectedCountry });
   }
 
