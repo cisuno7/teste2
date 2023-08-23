@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import StatsTable from '../Components/StatsTable';
-import { getTeamStatistics } from '../Services/TeamStatsService';
+import StatsTable from './StatsTable';
+import { getTeamStatistics } from '../Services/TeamnsStatesServices';
 
 function TeamStatsPage() {
   const [stats, setStats] = useState(null);
@@ -26,7 +26,7 @@ function TeamStatsPage() {
 
   return (
     <div className="team-stats-container">
-      <StatsTable stats={stats} />
+      {/* <StatsTable stats={stats} /> */}
     </div>
   );
 }
