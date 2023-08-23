@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import { getCountries } from '../Services/CountriesService';
 
 function SelectCountryPage() {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState('');
 
-  const history = useHistory();
 
   useEffect(() => {
     getCountries()

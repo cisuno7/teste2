@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import localStorageService from '../Services/LocalStorage';  
-import { useHistory } from 'react-router-dom';
+
 
 function LoginPage() {
-  const defaultKey = process.env.REACT_APP_API_KEY || '';
+  const defaultKey  = import.meta.env.VITE_REACT_APP_API_KEY || '';
   const [apiKey, setApiKey] = useState(defaultKey);
 
  
