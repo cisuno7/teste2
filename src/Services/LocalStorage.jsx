@@ -4,7 +4,7 @@ const setItem = (key, value) => {
     try {
         localStorage.setItem(key, JSON.stringify(value));
     } catch (error) {
-        console.error("Error saving to localStorage", error);
+        console.error("Error savin to localStorage", error);
     }
 };
 
