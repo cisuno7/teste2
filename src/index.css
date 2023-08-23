@@ -3,6 +3,10 @@
   line-height: 1.5;
   font-weight: 400;
 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -24,11 +28,15 @@ a:hover {
 }
 
 body {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  flex-direction: column; /* Adicione esta linha para centralizar verticalmente */
+  justify-content: center; /* Adicione esta linha para centralizar verticalmente */
+  align-items: center; /* Adicione esta linha para centralizar horizontalmente */
   min-height: 100vh;
+  min-width: 100vw; /* Adicione esta linha para ocupar toda a largura */
 }
 
 h1 {
