@@ -7,13 +7,15 @@ import TeamInfoPage from '../Views/TeamInfoPage';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-      <Route path="/" exact component={LoginPage} />
-      <Route path="/select" component={SelectPage} />
-      <Route path="/team" component={TeamInfoPage} />
-      </Switch>
-    </Router>
+    <div className="app-container">
+      <Router>
+        <Switch>
+          <Route path="/" exact component={LoginPage} />
+          <Route path="/select" component={SelectPage} />
+          <Route path="/team" component={TeamInfoPage} />
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
