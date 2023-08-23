@@ -20,26 +20,24 @@ function PlayerList({ players }) {
 
 function TeamSquadPage() {
   const [players, setPlayers] = useState([]);
-  const [teamId, setTeamId] = useState(null);
-  useEffect(() => {
-    // Esta não é a forma correta de usar o useState dentro do useEffect.
-    // Eu vou corrigir isso mais adiante.
-    
+  const teamId = 1;  // Por enquanto, vamos fixar um teamId. Você pode mudar isso conforme necessário.
 
-    getTeamSquad(teamId)
-      .then(response => {
-        setPlayers(response.data);
-      })
-      .catch(error => {
-        console.error("Erro ao buscar jogadores:", error);
-      });
-  }, []);
+  useEffect(() => {
+      getTeamSquad(teamId)
+          .then(response => {
+              setPlayers(response.data);
+          })
+          .catch(error => {
+              console.error("Erro ao buscar jogadores:", error);
+          });
+  }, []);  // O teamId é constante, por isso não é necessário colocá-lo nas dependências.
 
   return (
-    <div className="team-squad-container">
-      <PlayerList players={players} />
-    </div>
+      <div className="team-squad-container">
+          <PlayerList players={players} />
+      </div>
   );
 }
+
 
 export default TeamSquadPage;
